@@ -1,0 +1,3 @@
+<body>
+    Add Student
+</body>
