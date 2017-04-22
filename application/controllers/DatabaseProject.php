@@ -32,11 +32,26 @@ class DatabaseProject extends CI_Controller {
 
     public function add_student()
     {
-        if($this->input->post('home')) {
+        $data['title'] = 'Add New Student';
+        $data['status'] = '';
+
+        if ($this->input->post('home')) {
             redirect('/databaseProject');
         }
-        $this->load->view('templates/header');
-        $this->load->view('databaseProject/add_student');
+        if ($this->input->post('submit')) {
+            $new_id = $this->input->post('new_student_id');
+            $new_name = $this->input->post('new_student_name');
+            $new_major = $this->input->post('new_student_major');
+            $data['new_student_data'] = array (
+                'studentID'     =>      (!empty($new_id)    ? $new_id       : ''),
+                'studentName'   =>      (!empty($new_name)  ? $new_name     : ''),
+                'major'         =>      (!empty($new_major) ? $new_major    : '')
+            );
+            $data['status'] = $this->database_model->insert_student($data['new_student_data']);
+        }
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('databaseProject/add_student', $data);
         $this->load->view('templates/footer');
     }
 
