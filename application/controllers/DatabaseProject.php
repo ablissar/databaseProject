@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class DatabaseProject extends CI_Controller {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('databaseProject/database_model');
+    }
 
 	public function index()
 	{
@@ -60,8 +65,12 @@ class DatabaseProject extends CI_Controller {
         if($this->input->post('home')) {
             redirect('/databaseProject');
         }
-        $this->load->view('templates/header');
-        $this->load->view('databaseProject/view_students');
+
+        $data['students'] = $this->database_model->get_student_by_id();
+        $data['title'] = 'All Students';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('databaseProject/view_students', $data);
         $this->load->view('templates/footer');
     }
 
