@@ -122,11 +122,21 @@ class DatabaseProject extends CI_Controller {
 
     public function view_courses_by_department()
     {
+        $data['title'] = 'View Courses by Department';
+        $data['courses'] = [];
+
         if($this->input->post('home')) {
             redirect('/databaseProject');
         }
-        $this->load->view('templates/header');
-        $this->load->view('databaseProject/view_courses_by_department');
+
+
+        if($this->input->post('submit')) {
+            $department_code = $this->input->post('department_code');
+            $department_code = (!empty($department_code) ? $department_code : NULL );
+            $data['courses'] = $this->database_model->get_courses_by_department($department_code);
+        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('databaseProject/view_courses_by_department', $data);
         $this->load->view('templates/footer');
     }
 
