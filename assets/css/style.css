@@ -1,14 +1,15 @@
 html, body {
     margin: 0px;
     padding: 0px;
-    background-color: #32374F;
+    background-color: white;
 }
 
 header {
     text-align: center;
     background-color: #27367F;
     margin: 0px;
-    padding: .75em;
+    /*padding: .75em;*/
+    height: 2em;
     font-size: 2.5em;
     font-weight: bold;
     color: white;
@@ -18,11 +19,13 @@ header {
     display: block;
     width: 250px;
     margin-top: 0;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: auto;
     margin-right: auto;
     border-radius: 2em;
     padding: 1em;
+    background-color: #27367F;
+    color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-weight: bold;
     font-size: 1em;
@@ -31,16 +34,25 @@ header {
 }
 
 .nav_button:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: #27367F;
+}
+
+.center_column {
+    background-color: #27367F;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 .nav_buttons {
-    background-color: white;
-    width: 250px;
+    position: absolute;
     margin: 0 auto;
-    padding-top: 2em;
-    padding-bottom: 1em;
-    padding-left: 4em;
-    padding-right: 4em;
+    left: 0;
+    right: 0;
+    top: 10%;
+    bottom: 10%;
 }
