@@ -1,7 +1,8 @@
 <body>
     <header>
-        <h1 class="header">Adam Bliss Project Home</h1>
+        Adam Bliss Project Home
     </header>
+    <div class="nav_buttons">
     <?php
         echo form_open('', '');
         $data = array(
@@ -34,18 +35,19 @@
 
         $data = array(
             'name'      => 'view_courses_by_department',
-            'value'     => 'View all courses for a given department.',
+            'value'     => 'View courses by department.',
             'class'     => 'nav_button'
         );
         echo form_submit($data);
 
         $data = array(
             'name'      => 'view_student_schedule',
-            'value'     => 'View all courses for a given student.',
+            'value'     => 'View student schedule.',
             'class'     => 'nav_button'
         );
         echo form_submit($data);
 
         echo form_close();
     ?>
+    </div>
 </body>
