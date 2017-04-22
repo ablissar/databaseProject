@@ -2,14 +2,6 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <style>
-    html, body {
-        padding: 0;
-        margin: 0;
-    }
-    .header {
-        background-color: lightgray;
-    }
-    </style>
+    <link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>assets/css/style.css' />
     <title><?php echo $title ?></title>
 </head>

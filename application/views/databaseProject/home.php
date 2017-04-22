@@ -2,38 +2,66 @@
     <header class="header">
         Adam Bliss Project Home <br />
     </header>
-    <?php echo form_open('', ''); ?>
-    <table>
-        <tr>
-            <td>1</td>
-            <td>Add a new student.</td>
-            <td><?php echo form_submit('one', 'Go'); ?></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Add a new course.</td>
-            <td><?php echo form_submit('two', 'Go'); ?></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Add a new enrollment.</td>
-            <td><?php echo form_submit('three', 'Go'); ?></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>View all students.</td>
-            <td><?php echo form_submit('four', 'Go'); ?></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>View all courses from a given department.</td>
-            <td><?php echo form_submit('five', 'Go'); ?></td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>View all courses for a given student.</td>
-            <td><?php echo form_submit('six', 'Go'); ?></td>
-        </tr>
-    </table>
+    <?php
+        echo form_open('', '');
+
+    ?>
+
+
+
+                <?php
+                    $data = array(
+                        'name'      => 'add_student',
+                        'value'     => 'Add a student.',
+                        'class'     => 'nav_button'
+                    );
+                    echo form_submit($data);
+                ?>
+
+                <?php
+                    $data = array(
+                        'name'      => 'add_course',
+                        'value'     => 'Add a course.',
+                        'class'     => 'nav_button'
+                    );
+                    echo form_submit($data);
+                ?>
+
+                <?php
+                    $data = array(
+                        'name'      => 'add_enrollment',
+                        'value'     => 'Enroll a student in a course.',
+                        'class'     => 'nav_button'
+                    );
+                    echo form_submit($data);
+                ?>
+
+                <?php
+                    $data = array(
+                        'name'      => 'view_students',
+                        'value'     => 'View all students.',
+                        'class'     => 'nav_button'
+                    );
+                    echo form_submit($data);
+                ?>
+
+                <?php
+                    $data = array(
+                        'name'      => 'view_courses_by_department',
+                        'value'     => 'View all courses for a given department.',
+                        'class'     => 'nav_button'
+                    );
+                    echo form_submit($data);
+                ?>
+
+                <?php
+                    $data = array(
+                        'name'      => 'view_student_schedule',
+                        'value'     => 'View all courses for a given student.',
+                        'class'     => 'nav_button'
+                    );
+                    echo form_submit($data);
+                ?>
+
     <?php echo form_close(); ?>
 </body>

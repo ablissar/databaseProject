@@ -1,3 +1,11 @@
-.header {
-    background-color: "LightGray";
+header {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav_button {
+    display: block;
+    width: 250px;
+    margin:0 auto;
 }

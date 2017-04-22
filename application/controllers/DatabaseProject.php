@@ -10,22 +10,22 @@ class DatabaseProject extends CI_Controller {
 
 	public function index()
 	{
-        if($this->input->post('one')) {
-            log_message('debug', 'test_one');
+        if($this->input->post('add_student')) {
             redirect('/databaseProject/add_student');
-        } else if ($this->input->post('two')) {
+        } else if ($this->input->post('add_course')) {
             redirect('/databaseProject/add_course');
-        } else if ($this->input->post('three')) {
+        } else if ($this->input->post('add_enrollment')) {
             redirect('/databaseProject/add_enrollment');
-        } else if ($this->input->post('four')) {
+        } else if ($this->input->post('view_students')) {
             redirect('/databaseProject/view_students');
-        } else if ($this->input->post('five')) {
+        } else if ($this->input->post('view_courses_by_department')) {
             redirect('/databaseProject/view_courses_by_department');
-        } else if ($this->input->post('six')) {
+        } else if ($this->input->post('view_student_schedule')) {
             redirect('/databaseProject/view_student_schedule');
         }
 
-		$this->load->view('templates/header');
+        $data['title'] = 'Home';
+		$this->load->view('templates/header', $data);
         $this->load->view('databaseProject/home');
         $this->load->view('templates/footer');
 	}
