@@ -67,4 +67,10 @@ class Database_model extends CI_Model {
         $query = $this->db->get_where('Course', array('deptCode' => $department_code));
         return $query->result_array();
     }
+
+    public function get_courses_by_student($student_id)
+    {
+        $query = $this->db->get_where('Enrollment', array('studentID' => $student_id));
+        return $query->result_array();
+    }
 } ?>

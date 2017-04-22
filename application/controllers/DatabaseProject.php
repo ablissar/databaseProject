@@ -142,11 +142,19 @@ class DatabaseProject extends CI_Controller {
 
     public function view_student_schedule()
     {
+        $data['title'] = 'View Student Schedule';
+        $data['schedule'] = [];
+
         if($this->input->post('home')) {
             redirect('/databaseProject');
         }
-        $this->load->view('templates/header');
-        $this->load->view('databaseProject/view_student_schedule');
+        if($this->input->post('submit')) {
+            $student_id = $this->input->post('student_id');
+            $student_id = (!empty($student_id) ? $student_id : NULL );
+            $data['schedule'] = $this->database_model->get_courses_by_student($student_id);
+        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('databaseProject/view_student_schedule', $data);
         $this->load->view('templates/footer');
     }
 }
