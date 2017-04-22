@@ -19,13 +19,28 @@ class Database_model extends CI_Model {
 
     public function insert_student($new_student_data)
     {
-        if ($new_student_data['studentID'] == '' ||
-            $new_student_data['studentName'] == '' ||
-            $new_student_data['major'] == '') {
+        if ($new_student_data['studentID'] == NULL ||
+            $new_student_data['studentName'] == NULL ||
+            $new_student_data['major'] == NULL) {
             $status = 'Error: all fields must be filled in.';
         }
         else {
             $query = $this->db->insert('Student', $new_student_data);
+            $status = 'success';
+        }
+        return $status;
+    }
+
+    public function insert_course($new_course_data)
+    {
+        if ($new_course_data['deptCode'] == NULL ||
+            $new_course_data['courseNum'] == NULL ||
+            $new_course_data['title'] == NULL ||
+            $new_course_data['creditHours'] == NULL) {
+            $status = 'Error: all fields must be filled in.';
+        }
+        else {
+            $query = $this->db->insert('Course', $new_course_data);
             $status = 'success';
         }
         return $status;
