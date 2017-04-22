@@ -45,4 +45,20 @@ class Database_model extends CI_Model {
         }
         return $status;
     }
+
+    public function insert_enrollment($new_enrollment_data)
+    {
+        if ($new_enrollment_data['deptCode'] == NULL ||
+            $new_enrollment_data['courseNum'] == NULL ||
+            $new_enrollment_data['studentID'] == NULL) {
+            $status = 'Error: all fields must be filled in.';
+        }
+        else if (! $this->db->insert('Enrollment', $new_enrollment_data) ){
+            $status = 'Error: insert failed (invalid keys).';
+        }
+        else {
+            $status = 'success';
+        }
+        return $status;
+    }
 } ?>

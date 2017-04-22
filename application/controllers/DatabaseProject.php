@@ -84,11 +84,25 @@ class DatabaseProject extends CI_Controller {
 
     public function add_enrollment()
     {
+        $data['title'] = 'Add New Enrollment';
+        $data['status'] = '';
+
         if($this->input->post('home')) {
             redirect('/databaseProject');
         }
-        $this->load->view('templates/header');
-        $this->load->view('databaseProject/add_enrollment');
+        if ($this->input->post('submit')) {
+            $new_student_id = $this->input->post('new_student_id');
+            $new_department_code = $this->input->post('new_department_code');
+            $new_course_number = $this->input->post('new_course_number');
+            $data['new_enrollment_data'] = array (
+                'studentID'     =>      (!empty($new_student_id)        ? $new_student_id           : NULL),
+                'deptCode'      =>      (!empty($new_department_code)   ? $new_department_code      : NULL),
+                'courseNum'     =>      (!empty($new_course_number)     ? $new_course_number        : NULL)
+            );
+            $data['status'] = $this->database_model->insert_enrollment($data['new_enrollment_data']);
+        }
+        $this->load->view('templates/header', $data);
+        $this->load->view('databaseProject/add_enrollment', $data);
         $this->load->view('templates/footer');
     }
 

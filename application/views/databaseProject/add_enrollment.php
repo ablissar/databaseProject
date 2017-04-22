@@ -11,7 +11,7 @@
         echo "New Student ID: ";
         echo form_input('new_student_id');
 
-        echo form_submit('submit', 'Add Course');
+        echo form_submit('submit', 'Add Enrollment');
         echo form_submit('home', 'Home Page');
         echo form_close();
         echo $status;
