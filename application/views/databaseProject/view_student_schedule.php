@@ -10,10 +10,12 @@
         echo form_close();
 
         foreach ($schedule as $course): ?>
-            <h3><?php //echo $course['title']; ?></h3>
+            <h3><?php echo $course[0]['title']; ?></h3>
             <?php
-            echo $course['deptCode'];
-            echo $course['courseNum'];
+            echo $course[0]['deptCode'];
+            echo $course[0]['courseNum'];
+            echo $course[0]['creditHours'];
+            //print_r($course);
         endforeach;
     ?>
 </body>

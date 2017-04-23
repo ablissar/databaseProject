@@ -71,6 +71,17 @@ class Database_model extends CI_Model {
     public function get_courses_by_student($student_id)
     {
         $query = $this->db->get_where('Enrollment', array('studentID' => $student_id));
-        return $query->result_array();
+        $courses = $query->result_array();
+
+
+        $schedule = [];
+        foreach ($courses as $course):
+            $query = $this->db->get_where('Course', array(
+                    'deptCode' => $course['deptCode'],
+                    'courseNum' => $course['courseNum']
+                ));
+            $schedule[] = $query->result_array();
+        endforeach;
+        return $schedule;
     }
 } ?>
