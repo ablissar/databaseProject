@@ -54,7 +54,19 @@ class Database_model extends CI_Model {
             $status = 'Error: all fields must be filled in.';
         }
         else if (! $this->db->insert('Enrollment', $new_enrollment_data) ){
-            $status = 'Error: insert failed (invalid keys).';
+            $code = $this->db->error()['code'];
+            $message = $this->db->error()['message'];
+            switch($code) {
+                case 1062:
+                    $status = 'Error: student is already enrolled in this course.';
+                    break;
+                case 1452:
+                    $status = 'Error: invalid keys.';
+                    break;
+                default:
+                    $status = 'Error: enrollment failed with error code '.$code;
+                    $status .=' and message '.$message;
+            }
         }
         else {
             $status = 'success';

@@ -15,7 +15,6 @@
             echo $course[0]['deptCode'];
             echo $course[0]['courseNum'];
             echo $course[0]['creditHours'];
-            //print_r($course);
         endforeach;
     ?>
 </body>
