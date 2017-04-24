@@ -32,21 +32,53 @@ class DatabaseProject extends CI_Controller {
 
     public function add_student()
     {
-        if($this->input->post('home')) {
+        $data['title'] = 'Add New Student';
+        $data['status'] = '';
+
+        if ($this->input->post('home')) {
             redirect('/databaseProject');
         }
-        $this->load->view('templates/header');
-        $this->load->view('databaseProject/add_student');
+        if ($this->input->post('submit')) {
+            $new_id = $this->input->post('new_student_id');
+            $new_name = $this->input->post('new_student_name');
+            $new_major = $this->input->post('new_student_major');
+            $data['new_student_data'] = array (
+                'studentID'     =>      (!empty($new_id)    ? $new_id       : NULL),
+                'studentName'   =>      (!empty($new_name)  ? $new_name     : NULL),
+                'major'         =>      (!empty($new_major) ? $new_major    : NULL)
+            );
+            $data['status'] = $this->database_model->insert_student($data['new_student_data']);
+        }
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('databaseProject/add_student', $data);
         $this->load->view('templates/footer');
     }
 
     public function add_course()
     {
+        $data['title'] = 'Add New Course';
+        $data['status'] = '';
+
         if($this->input->post('home')) {
             redirect('/databaseProject');
         }
-        $this->load->view('templates/header');
-        $this->load->view('databaseProject/add_course');
+        if ($this->input->post('submit')) {
+            $new_department_code = $this->input->post('new_department_code');
+            $new_course_number = $this->input->post('new_course_number');
+            $new_course_title = $this->input->post('new_course_title');
+            $new_credit_hours = $this->input->post('new_credit_hours');
+            $data['new_course_data'] = array (
+                'deptCode'      =>      (!empty($new_department_code)   ? $new_department_code      : NULL),
+                'courseNum'     =>      (!empty($new_course_number)     ? $new_course_number        : NULL),
+                'title'         =>      (!empty($new_course_title)      ? $new_course_title         : NULL),
+                'creditHours'   =>      (!empty($new_credit_hours)      ? $new_credit_hours         : NULL)
+            );
+            $data['status'] = $this->database_model->insert_course($data['new_course_data']);
+        }
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('databaseProject/add_course', $data);
         $this->load->view('templates/footer');
     }
 
