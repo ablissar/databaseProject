@@ -124,6 +124,7 @@ class DatabaseProject extends CI_Controller {
     {
         $data['title'] = 'View Courses by Department';
         $data['courses'] = [];
+        $data['status'] = '';
 
         if($this->input->post('home')) {
             redirect('/databaseProject');
@@ -134,6 +135,9 @@ class DatabaseProject extends CI_Controller {
             $department_code = $this->input->post('department_code');
             $department_code = (!empty($department_code) ? $department_code : NULL );
             $data['courses'] = $this->database_model->get_courses_by_department($department_code);
+            if(empty($data['courses'])) {
+                $data['status'] = 'Error: no courses found matching that department code.';
+            }
         }
         $this->load->view('templates/header', $data);
         $this->load->view('databaseProject/view_courses_by_department', $data);
@@ -144,6 +148,7 @@ class DatabaseProject extends CI_Controller {
     {
         $data['title'] = 'View Student Schedule';
         $data['schedule'] = [];
+        $data['status'] = '';
 
         if($this->input->post('home')) {
             redirect('/databaseProject');
@@ -152,6 +157,9 @@ class DatabaseProject extends CI_Controller {
             $student_id = $this->input->post('student_id');
             $student_id = (!empty($student_id) ? $student_id : NULL );
             $data['schedule'] = $this->database_model->get_courses_by_student($student_id);
+            if(empty($data['schedule'])) {
+                $data['status'] = 'Error: no schedule found for that student ID.';
+            }
         }
         $this->load->view('templates/header', $data);
         $this->load->view('databaseProject/view_student_schedule', $data);

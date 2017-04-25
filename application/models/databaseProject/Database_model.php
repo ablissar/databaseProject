@@ -26,7 +26,7 @@ class Database_model extends CI_Model {
         }
         else {
             $query = $this->db->insert('Student', $new_student_data);
-            $status = 'success';
+            $status = 'Student created successfully.';
         }
         return $status;
     }
@@ -41,7 +41,7 @@ class Database_model extends CI_Model {
         }
         else {
             $query = $this->db->insert('Course', $new_course_data);
-            $status = 'success';
+            $status = 'Course created successfully.';
         }
         return $status;
     }
@@ -61,7 +61,7 @@ class Database_model extends CI_Model {
                     $status = 'Error: student is already enrolled in this course.';
                     break;
                 case 1452:
-                    $status = 'Error: invalid keys.';
+                    $status = 'Error: no such course or student.';
                     break;
                 default:
                     $status = 'Error: enrollment failed with error code '.$code;
@@ -69,7 +69,7 @@ class Database_model extends CI_Model {
             }
         }
         else {
-            $status = 'success';
+            $status = 'Enrollment created successfully.';
         }
         return $status;
     }

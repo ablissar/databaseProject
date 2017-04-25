@@ -29,6 +29,10 @@
             echo form_input('new_credit_hours');
             ?>
         </div>
+
+        <div class='error_message'>
+            <?php echo $status; ?>
+        </div>
     </div>
     <div class='form_buttons'>
         <?php
@@ -43,6 +47,4 @@
         echo form_close();
         ?>
     </div>
-
-    <?php echo $status;?>
 </body>

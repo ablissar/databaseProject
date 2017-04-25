@@ -4,7 +4,7 @@
         <?php echo form_open('databaseProject/add_enrollment'); ?>
         <div class='form_entry'>
             <?php
-            echo "Course Department Code: ";
+            echo "Department Code: ";
             echo form_input('new_department_code');
             ?>
         </div>
@@ -23,6 +23,9 @@
             ?>
         </div>
 
+        <div class='error_message'>
+            <?php echo $status; ?>
+        </div>
     </div>
     <div class='form_buttons'>
         <?php
@@ -37,6 +40,4 @@
         echo form_close();
         ?>
     </div>
-
-    <?php echo $status; ?>
 </body>

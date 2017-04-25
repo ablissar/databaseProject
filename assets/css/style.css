@@ -25,6 +25,7 @@ input[type='submit'] {
     transition-duration: 0.2s;
     padding: 1em;
     margin-bottom: 2em;
+    margin-top: 1em;
 }
 
 input[type='text'] {
@@ -65,7 +66,6 @@ input[type='text'] {
 .form_buttons, .form_buttons_table {
     width: 450px;
     margin: 0 auto;
-    margin-top: 2em;
 }
 
 .form_buttons_table {
@@ -116,4 +116,10 @@ th {
 
 .short_row {
     width: 200px;
+}
+
+.error_message {
+    text-align: right;
+    height: 20px;
+    padding: .5em;
 }

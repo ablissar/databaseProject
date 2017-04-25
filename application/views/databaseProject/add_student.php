@@ -22,7 +22,9 @@
             echo form_input('new_student_major');
             ?>
         </div>
-
+        <div class='error_message'>
+            <?php echo $status; ?>
+        </div>
     </div>
     <div class='form_buttons'>
         <?php
@@ -37,6 +39,4 @@
         echo form_close();
         ?>
     </div>
-
-    <?php echo $status; ?>
 </body>
