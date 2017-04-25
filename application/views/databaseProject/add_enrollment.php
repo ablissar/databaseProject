@@ -1,7 +1,7 @@
 <body>
     <header><?php echo $title; ?></header>
     <div class='form'>
-        <?php echo form_open('databaseProject/add_course'); ?>
+        <?php echo form_open('databaseProject/add_enrollment'); ?>
         <div class='form_entry'>
             <?php
             echo "New Department Code: ";
@@ -38,5 +38,5 @@
         ?>
     </div>
 
-    <?php echo $status;?>
+    <?php echo $status; ?>
 </body>
