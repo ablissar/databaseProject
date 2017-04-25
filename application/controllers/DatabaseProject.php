@@ -26,7 +26,7 @@ class DatabaseProject extends CI_Controller {
 
         $data['title'] = 'Home';
 		$this->load->view('templates/header', $data);
-        $this->load->view('databaseProject/home');
+        $this->load->view('databaseProject/home', $data);
         $this->load->view('templates/footer');
 	}
 
@@ -86,6 +86,7 @@ class DatabaseProject extends CI_Controller {
     {
         $data['title'] = 'Add New Enrollment';
         $data['status'] = '';
+        $data['department_codes'] = $this->database_model->get_department_codes();
 
         if($this->input->post('home')) {
             redirect('/databaseProject');
