@@ -4,21 +4,21 @@
         <?php echo form_open('databaseProject/add_enrollment'); ?>
         <div class='form_entry'>
             <?php
-            echo "New Department Code: ";
+            echo "Course Department Code: ";
             echo form_input('new_department_code');
             ?>
         </div>
 
         <div class='form_entry'>
             <?php
-            echo "New Course Number: ";
+            echo  "Course Number: ";
             echo form_input('new_course_number');
             ?>
         </div>
 
         <div class='form_entry'>
             <?php
-            echo "New Student ID: ";
+            echo "Student ID: ";
             echo form_input('new_student_id');
             ?>
         </div>
@@ -28,7 +28,7 @@
         <?php
         echo form_submit(array(
             'name' => 'submit',
-            'value' => 'Add Student',
+            'value' => 'Add Enrollment',
             'class' => 'form_submit_button'));
         echo form_submit(array(
             'name' => 'home',
