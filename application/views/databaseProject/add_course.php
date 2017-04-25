@@ -34,7 +34,7 @@
         <?php
         echo form_submit(array(
             'name' => 'submit',
-            'value' => 'Add Student',
+            'value' => 'Add Course',
             'class' => 'form_submit_button'));
         echo form_submit(array(
             'name' => 'home',
