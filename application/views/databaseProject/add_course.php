@@ -1,5 +1,12 @@
 <body>
-    <header><?php echo $title; ?></header>
+    <header>
+        <div class='title'>
+            <?php echo $title; ?>
+        </div>
+        <div class='name'>
+            Adam Bliss
+        </div>
+    </header>
     <div class='form'>
         <?php echo form_open('databaseProject/add_course'); ?>
         <div class='form_entry'>

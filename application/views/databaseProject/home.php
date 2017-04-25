@@ -1,6 +1,11 @@
 <body>
     <header>
-        Adam Bliss Project Home
+        <div class='title'>
+            <?php echo $title; ?>
+        </div>
+        <div class='name'>
+            Adam Bliss
+        </div>
     </header>
     <div class="nav_buttons_top">
         <?php

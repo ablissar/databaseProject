@@ -123,3 +123,15 @@ th {
     height: 20px;
     padding: .5em;
 }
+
+.title {
+    display: inline;
+    float: left;
+    margin: .4em 1em;
+}
+
+.name {
+    display: inline;
+    float: right;
+    margin: .4em 1em;
+}
