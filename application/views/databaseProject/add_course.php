@@ -1,22 +1,48 @@
 <body>
-    <?php
-        echo form_open('databaseProject/add_course');
+    <header><?php echo $title; ?></header>
+    <div class='form'>
+        <?php echo form_open('databaseProject/add_course'); ?>
+        <div class='form_entry'>
+            <?php
+            echo "New Department Code: ";
+            echo form_input('new_department_code');
+            ?>
+        </div>
 
-        echo "New Department Code: ";
-        echo form_input('new_department_code');
+        <div class='form_entry'>
+            <?php
+            echo "New Course Number: ";
+            echo form_input('new_course_number');
+            ?>
+        </div>
 
-        echo "New Course Number: ";
-        echo form_input('new_course_number');
+        <div class='form_entry'>
+            <?php
+            echo "New Course Title: ";
+            echo form_input('new_course_title');
+            ?>
+        </div>
 
-        echo "New Course Title: ";
-        echo form_input('new_course_title');
-
-        echo "New Credit Hours: ";
-        echo form_input('new_credit_hours');
-
-        echo form_submit('submit', 'Add Course');
-        echo form_submit('home', 'Home Page');
+        <div class='form_entry'>
+            <?php
+            echo "New Credit Hours: ";
+            echo form_input('new_credit_hours');
+            ?>
+        </div>
+    </div>
+    <div class='form_buttons'>
+        <?php
+        echo form_submit(array(
+            'name' => 'submit',
+            'value' => 'Add Student',
+            'class' => 'form_submit_button'));
+        echo form_submit(array(
+            'name' => 'home',
+            'value' => 'Home Page',
+            'class' => 'home_page_button'));
         echo form_close();
-        echo $status;
-    ?>
+        ?>
+    </div>
+
+    <?php echo $status;?>
 </body>
