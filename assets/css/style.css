@@ -55,7 +55,14 @@ input[type='submit'] {
     text-align: right;
 }
 
-.form_buttons {
+.form_buttons, .form_buttons_table {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 2em;
+}
+
+.form_buttons_table {
+    width: 800px;
 }
 
 .form_submit_button {
@@ -63,7 +70,7 @@ input[type='submit'] {
     background-color: green;
     padding: 1em;
     border-radius: 1em;
-    margin: 2em 4em;
+    float: left;
 }
 
 .form_submit_button:hover {
@@ -76,10 +83,26 @@ input[type='submit'] {
     background-color: darkred;
     padding: 1em;
     border-radius: 1em;
-    margin: 2em 4em;
+    float: right;
 }
 
 .home_page_button:hover {
     color: darkred;
     background-color: white;
+}
+
+table {
+    width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+
+td, th {
+    text-align: right;
+    border-bottom: 1px solid lightgray;
+}
+
+th {
+    border-bottom: 2px solid black;
 }

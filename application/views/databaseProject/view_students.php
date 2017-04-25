@@ -1,13 +1,29 @@
 <body>
-    <h2><?php echo $title; ?></h2>
+    <header><?php echo $title; ?></header>
 
-    <?php foreach ($students as $student): ?>
-        <h3><?php echo $student['studentName']; ?></h3>
-        <?php echo $student['studentID']; ?>
-        <?php echo $student['major']; ?>
-    <?php endforeach; ?>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>ID Number</th>
+            <th>Major</th>
+        </tr>
+        <?php foreach ($students as $student): ?>
+            <tr>
+                <td><?php echo $student['studentName']; ?></td>
+                <td><?php echo $student['studentID']; ?></td>
+                <td><?php echo $student['major']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 
-    <?php echo form_open('', ''); ?>
-    <?php echo form_submit('home', 'Home Page'); ?>
-    <?php echo form_close(); ?>
+    <div class='form_buttons_table'>
+        <?php
+        echo form_open('', '');
+        echo form_submit(array(
+            'name' => 'home',
+            'value' => 'Home Page',
+            'class' => 'home_page_button'));
+        echo form_close();
+        ?>
+    </div>
 </body>
