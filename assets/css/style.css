@@ -16,21 +16,20 @@ header {
 }
 
 .nav_button {
-    display: block;
+    display: inline;
     width: 250px;
-    margin-top: 0;
-    margin-bottom: 4em;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 2em;
+    margin-left: 4em;
+    margin-right: 4em;
     padding: 1em;
+    border-radius: 1em;
+    border: 0;
     background-color: #27367F;
     color: white;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
     font-weight: bold;
     font-size: 1em;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
 }
 
 .nav_button:hover {
@@ -38,7 +37,16 @@ header {
     color: #27367F;
 }
 
-.center_column {
+.nav_buttons_top {
+    text-align: center;
+    margin: 4em;
+}
+
+.nav_buttons_bottom {
+    text-align: center;
+    margin: 4em;
+}
+/*.center_column {
     background-color: #27367F;
     width: 50%;
     height: 100%;
@@ -46,13 +54,13 @@ header {
     left: 0;
     right: 0;
     margin: 0 auto;
-}
+}*/
 
-.nav_buttons {
+/*.nav_buttons {
     position: absolute;
     margin: 0 auto;
     left: 0;
     right: 0;
     top: 10%;
     bottom: 10%;
-}
+}*/
