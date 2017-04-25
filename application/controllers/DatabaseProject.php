@@ -125,6 +125,7 @@ class DatabaseProject extends CI_Controller {
         $data['title'] = 'View Courses by Department';
         $data['courses'] = [];
         $data['status'] = '';
+        $data['department_codes'] = $this->database_model->get_department_codes();
 
         if($this->input->post('home')) {
             redirect('/databaseProject');
@@ -136,7 +137,7 @@ class DatabaseProject extends CI_Controller {
             $department_code = (!empty($department_code) ? $department_code : NULL );
             $data['courses'] = $this->database_model->get_courses_by_department($department_code);
             if(empty($data['courses'])) {
-                $data['status'] = 'Error: no courses found matching that department code.';
+                $data['status'] = 'Error: no courses found matching '.$department_code.'.';
             }
         }
         $this->load->view('templates/header', $data);

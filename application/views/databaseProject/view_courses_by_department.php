@@ -5,7 +5,7 @@
         <div class='form_entry'>
             <?php
             echo "Department Code: ";
-            echo form_input('department_code');
+            echo form_dropdown('department_code', array_column($department_codes, 'deptCode', 'deptCode'));
             ?>
         </div>
 

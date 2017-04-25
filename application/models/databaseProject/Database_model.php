@@ -24,8 +24,19 @@ class Database_model extends CI_Model {
             $new_student_data['major'] == NULL) {
             $status = 'Error: all fields must be filled in.';
         }
+        else if ( !$this->db->insert('Student', $new_student_data) ){
+            $code = $this->db->error()['code'];
+            $message = $this->db->error()['message'];
+            switch($code) {
+                case 1062:
+                    $status = 'Error: student already exists.';
+                    break;
+                default:
+                    $status = 'Error: enrollment failed with error code '.$code;
+                    $status .=' and message '.$message;
+            }
+        }
         else {
-            $query = $this->db->insert('Student', $new_student_data);
             $status = 'Student created successfully.';
         }
         return $status;
@@ -39,8 +50,19 @@ class Database_model extends CI_Model {
             $new_course_data['creditHours'] == NULL) {
             $status = 'Error: all fields must be filled in.';
         }
+        else if (! $this->db->insert('Course', $new_course_data) ){
+            $code = $this->db->error()['code'];
+            $message = $this->db->error()['message'];
+            switch($code) {
+                case 1062:
+                    $status = 'Error: course already exists.';
+                    break;
+                default:
+                    $status = 'Error: course add failed with error code '.$code;
+                    $status .=' and message '.$message;
+            }
+        }
         else {
-            $query = $this->db->insert('Course', $new_course_data);
             $status = 'Course created successfully.';
         }
         return $status;
@@ -95,5 +117,11 @@ class Database_model extends CI_Model {
             $schedule[] = $query->result_array();
         endforeach;
         return $schedule;
+    }
+
+    public function get_department_codes() {
+        $this->db->select('deptCode');
+        $query = $this->db->get('Course');
+        return $query->result_array();
     }
 } ?>

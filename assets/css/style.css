@@ -28,7 +28,7 @@ input[type='submit'] {
     margin-top: 1em;
 }
 
-input[type='text'] {
+input[type='text'], select {
     width: 235px;
     height: 20px;
     margin-bottom: 2em;
