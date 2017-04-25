@@ -1,20 +1,43 @@
 <body>
-    <?php
-        echo form_open('databaseProject/view_courses_by_department');
-
-        echo "Department Code: ";
-        echo form_input('department_code');
-
-        echo form_submit('submit', 'View Courses');
-        echo form_submit('home', 'Home Page');
-        echo form_close();
-
-        foreach ($courses as $course): ?>
-            <h3><?php echo $course['title']; ?></h3>
+    <header><?php echo $title; ?></header>
+    <div class='form'>
+        <?php echo form_open('databaseProject/view_courses_by_department'); ?>
+        <div class='form_entry'>
             <?php
-            echo $course['deptCode'];
-            echo $course['courseNum'];
-            echo $course['creditHours'];
-        endforeach;
-    ?>
+            echo "Department Code: ";
+            echo form_input('department_code');
+            ?>
+        </div>
+    </div>
+    <div class='form_buttons'>
+        <?php
+        echo form_submit(array(
+            'name' => 'submit',
+            'value' => 'View Courses',
+            'class' => 'form_submit_button'));
+        echo form_submit(array(
+            'name' => 'home',
+            'value' => 'Home Page',
+            'class' => 'home_page_button'));
+        echo form_close();
+        ?>
+    </div>
+    <table>
+        <?php if(!empty($courses)) { ?>
+        <tr>
+            <th>Course Title</th>
+            <th class='short_row'>Department</th>
+            <th class='short_row'>Course Number</th>
+            <th class='short_row'>Credit Hours</th>
+        </tr>
+
+        <?php foreach ($courses as $course): ?>
+            <tr>
+                <td><?php echo $course['title']; ?></td>
+                <td><?php echo $course['deptCode']; ?></td>
+                <td><?php echo $course['courseNum']; ?></td>
+                <td><?php echo $course['creditHours']; ?></td>
+            </tr>
+        <?php endforeach; }?>
+    </table>
 </body>
